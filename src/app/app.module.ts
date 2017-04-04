@@ -1,20 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,Directive,Input,ElementRef,Renderer } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { indexComponent } from './components/index';
+import { loginComponent } from './components/login';
+import { homeComponent } from './components/home';
+import { RouterModule, Routes } from '@angular/router';
+import {MyInhertLink,HighlightDirective} from './directives/sample';
+import {MySharedService} from './services/masterPage';
+const appRoutes: Routes = [
+  { path: 'index', component: indexComponent },
+  {path:'login',component:loginComponent},
+  {path:'home',component:homeComponent}
+];
 
-import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    indexComponent,loginComponent,homeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
+   
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [MySharedService],
+  bootstrap: [indexComponent]
 })
 export class AppModule { }

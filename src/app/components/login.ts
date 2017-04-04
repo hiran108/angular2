@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
 import { Http, Response ,Headers, RequestOptions} from '@angular/http';
 import 'rxjs/Rx';
-import {Observable} from 'rxjs/Rx'
+import {Observable} from 'rxjs/Rx';
+import {Router } from '@angular/router';
+import { Location } from '@angular/common';
+import {MySharedService} from '../services/masterPage';
+
 @Component({
   selector: 'app-login',
-  templateUrl: './views/login.html',
-  styleUrls: ['css/login.css']
+  templateUrl: '../views/login.html',
+  styleUrls: ['../css/login.css']
 })
 
 
-export class AppComponent {
- constructor(public http: Http) { }
+export class loginComponent {
+ constructor(public http: Http,private router: Router,private location:Location,private masterService:MySharedService) { }
   title = 'POS in CLOUD';
   username='';
   password='';
@@ -27,7 +31,12 @@ loginComplete(res,iserror)
   else
   {
     this.errorText="";
-
+    localStorage.setItem('token',msg.token);
+    //location.reload();
+    this.masterService.setLoginTxt({loginText:'Logout',authanticated:1});
+    // this.masterService.setauthanticated('1');
+  //this.location.subscribe()
+//this.router.navigate(['home']);
   }
 //console.log(msg.message);
 }

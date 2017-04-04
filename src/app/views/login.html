@@ -1,0 +1,11 @@
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<div class="logo"></div>
+<div class="login-block">
+    <h1>Login</h1>
+    <input type="text" [(ngModel)]=username placeholder="Username" id="username" />
+    <input type="password"  [(ngModel)]=password placeholder="Password" id="password" />
+    <button (click)="Login($event)">Submit</button>
+    <P>{{errorText}}</P>
+</div>
+

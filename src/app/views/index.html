@@ -1,0 +1,17 @@
+
+
+
+
+   
+   <nav id="nav-1">
+  <a class="link-3" [class.disabled]="!isathanticated ? true : null" href="javascript:void(0)" (click)="clicked(1)" [ngClass]="{'active':selectedItem===1}" >Home</a>
+  <a class="link-3" [class.disabled]="!isathanticated ? true : null" href="javascript:void(0)" (click)="clicked(2)" [ngClass]="{'active':selectedItem===2}">About</a>
+  <a class="link-3" [class.disabled]="!isathanticated ? true : null" href="javascript:void(0)" (click)="clicked(3)" [ngClass]="{'active':selectedItem===3}">Contact</a>
+  <a  class="link-3"  href="javascript:void(0)" (click)="clicked(4)" [ngClass]="{'active':selectedItem===4}">{{loginText}}</a>
+</nav>
+	
+       <router-outlet>
+</router-outlet>
+   
+
+  
